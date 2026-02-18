@@ -1,0 +1,221 @@
+.footer{
+  background: linear-gradient(135deg, #070e1a, #0b1628);
+  color: #f8fafc;
+  position: relative;
+}
+
+/* Línea dorada superior elegante */
+.top-border{
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #caa24d, transparent);
+}
+
+.container{
+  width: 1200px;
+  max-width: 92%;
+  margin: 0 auto;
+}
+
+.footer-grid{
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 28px;
+  padding: 25px 0;
+}
+
+/* Marca */
+.brand{
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.logo{
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(202,162,77,.14);
+  border: 1px solid rgba(202,162,77,.25);
+  font-size: 20px;
+  flex: 0 0 auto;
+}
+
+.name{
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: .8px;
+  font-size: 18px;
+}
+
+.sub{
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #b8c3df;
+}
+
+.description{
+  margin: 12px 0 0;
+  color: rgba(184,195,223,.9);
+  font-size: 13px;
+  line-height: 1.65;
+  max-width: 420px;
+}
+
+/* Títulos */
+.footer-title{
+  margin: 0 0 14px;
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(202,162,77,.95);
+}
+
+/* Navegación (adiós bullets + estilo premium) */
+.footer-links{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.footer-links a{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: rgba(238,245,255,.9);
+  font-weight: 650;
+  font-size: 14px;
+  transition: .25s ease;
+  position: relative;
+  padding-left: 14px;
+}
+
+/* puntito dorado */
+.footer-links a::before{
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(202,162,77,.85);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 0 4px rgba(202,162,77,.10);
+}
+
+.footer-links a:hover{
+  color: #caa24d;
+  transform: translateX(4px);
+}
+
+/* Contacto (en vez de texto simple, tarjetas elegantes) */
+.contact-list{
+  display: grid;
+  grid-template-columns: 1.2fr 1.8fr;
+  gap: 12px;
+}
+
+.contact-item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+  text-decoration: none;
+  color: rgba(238,245,255,.92);
+  transition: .25s ease;
+  font-size: 13px;
+
+  white-space: nowrap; /* 👈 evita que el número se parta */
+}
+
+.contact-item .icon{
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  background: rgba(202,162,77,.10);
+  border: 1px solid rgba(202,162,77,.18);
+  font-size: 13px;
+}
+
+.contact-item .text{
+  font-weight: 650;
+  font-size: 14px;
+}
+
+.contact-item:hover{
+  transform: translateY(-2px);
+  background: rgba(202,162,77,.06);
+  border-color: rgba(202,162,77,.25);
+  color: #caa24d;
+}
+
+.contact-item:last-child{
+  grid-column: 1 / -1;
+  justify-content: center;
+}
+
+/* Parte inferior */
+.bottom{
+  border-top: 1px solid rgba(255,255,255,.08);
+  background: rgba(0,0,0,.25);
+}
+
+.bottom-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  font-size: 12px;
+  color: rgba(159,176,209,.92);
+  flex-wrap: wrap;
+}
+
+.credit{
+  opacity: .85;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .footer-grid{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .brand{
+    justify-content: center;
+  }
+
+  .description{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-links a{
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  .footer-links a::before{
+    display: none;
+  }
+
+  .contact-item{
+    justify-content: center;
+  }
+
+  .bottom-content{
+    justify-content: center;
+    text-align: center;
+  }
+}

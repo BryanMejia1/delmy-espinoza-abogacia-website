@@ -1,0 +1,87 @@
+<section class="contact">
+  <div class="container">
+    <header class="head">
+      <h1>Contacto</h1>
+      <p>Cuéntame tu caso y te responderé con una ruta clara para iniciar tu trámite.</p>
+    </header>
+
+    <div class="grid">
+
+      <!-- Info -->
+      <div class="info card">
+        <h3>Información</h3>
+
+        <div class="item">
+          <span class="label">Teléfono</span>
+          <a href="tel:+50488149061">+504 8814-9061</a>
+        </div>
+
+        <div class="item">
+          <span class="label">Correo</span>
+          <a href="mailto:contacto@royramirezlegal.com">despinoza87@yahoo.com</a>
+        </div>
+
+        <div class="item">
+          <span class="label">WhatsApp</span>
+          <span class="small">Elige a cuál número enviar tu mensaje</span>
+        </div>
+
+        <div class="hint">
+          Atención internacional. España / trámites consulares / documentación.
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form class="form card" [formGroup]="form">
+        <div class="row">
+          <label>Nombre</label>
+          <input formControlName="name" placeholder="Tu nombre completo" />
+          <small class="err" *ngIf="f.name.touched && f.name.invalid">
+            Ingresa tu nombre (mínimo 3 caracteres).
+          </small>
+        </div>
+
+        <div class="row">
+          <label>Correo</label>
+          <input type="email" formControlName="email" placeholder="tucorreo@email.com" />
+          <small class="err" *ngIf="f.email.touched && f.email.invalid">
+            Ingresa un correo válido.
+          </small>
+        </div>
+
+        <div class="row">
+          <label>Asunto</label>
+          <input formControlName="subject" placeholder="Ej: Residencia / Apostilla / Visa" />
+          <small class="err" *ngIf="f.subject.touched && f.subject.invalid">
+            Ingresa un asunto (mínimo 3 caracteres).
+          </small>
+        </div>
+
+        <div class="row">
+          <label>Mensaje</label>
+          <textarea rows="5" formControlName="message" placeholder="Cuéntame tu caso brevemente..."></textarea>
+          <small class="err" *ngIf="f.message.touched && f.message.invalid">
+            Ingresa un mensaje (mínimo 10 caracteres).
+          </small>
+        </div>
+
+        <div class="actions">
+          <a class="btn-outline" routerLink="/inicio">Volver al inicio</a>
+
+          <button type="button" class="btn-gold" (click)="submitToWhatsApp(0)">
+            Enviar a WhatsApp 1
+          </button>
+
+          <button type="button" class="btn-gold" (click)="submitToWhatsApp(1)">
+            Enviar a WhatsApp 2
+          </button>
+        </div>
+
+        <p class="note">
+          Al enviar, se abrirá WhatsApp con el mensaje listo para enviar.
+        </p>
+      </form>
+
+    </div>
+  </div>
+</section>

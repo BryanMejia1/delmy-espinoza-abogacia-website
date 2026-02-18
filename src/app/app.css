@@ -1,0 +1,21 @@
+/* Fondo general del sitio (evita espacios blancos) */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #070f1d, #0b1c35);
+}
+
+/* Layout para que el footer quede abajo sin huecos */
+app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+  display: block;
+}

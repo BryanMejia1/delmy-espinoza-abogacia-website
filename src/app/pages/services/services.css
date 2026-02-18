@@ -1,0 +1,156 @@
+.services{
+  padding: 70px 0 90px;
+  background: linear-gradient(135deg, #0a101d, #0f1b32);
+  color: #f8fafc;
+}
+
+.container{
+  width: 1200px;
+  max-width: 92%;
+  margin: 0 auto;
+}
+
+.head{
+  text-align: center;
+  margin-bottom: 38px;
+}
+
+.head h1{
+  font-size: 42px;
+  margin: 0 0 12px;
+  letter-spacing: .4px;
+}
+
+.head p{
+  margin: 0 auto;
+  max-width: 700px;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.card{
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 20px 18px;
+  min-height: 190px;
+  transition: .25s;
+}
+
+.card:hover{
+  transform: translateY(-3px);
+  border-color: rgba(202,162,77,.25);
+  background: rgba(202,162,77,.06);
+  box-shadow: 0 18px 45px rgba(0,0,0,.35);
+}
+
+.icon{
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(202,162,77,.14);
+  border: 1px solid rgba(202,162,77,.25);
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.card h3{
+  margin: 0 0 8px;
+  font-size: 16px;
+  letter-spacing: .2px;
+}
+
+.card p{
+  margin: 0 0 12px;
+  color: #cbd5e1;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.link{
+  color: #caa24d;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.link:hover{
+  text-decoration: underline;
+}
+
+.actions{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+  flex-wrap: wrap;
+}
+
+.btn-gold{
+  background: linear-gradient(135deg, #caa24d, #b88c35);
+  padding: 13px 22px;
+  border-radius: 8px;
+  color: #111;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.btn-outline{
+  padding: 13px 22px;
+  border-radius: 8px;
+  color: #f8fafc;
+  border: 1px solid rgba(255,255,255,.12);
+  text-decoration: none;
+  background: rgba(255,255,255,.03);
+}
+
+@media (max-width: 1100px){
+  .grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px){
+  .grid{ grid-template-columns: 1fr; }
+  .head h1{ font-size: 34px; }
+}
+
+.actions{
+  position: relative;
+  z-index: 5;
+}
+
+.btn-gold, .btn-outline{
+  position: relative;
+  z-index: 6;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+@media (max-width: 1100px){
+  .grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px){
+  .grid{
+    grid-template-columns: 1fr;
+  }
+
+  .actions{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-outline, .btn-gold{
+    width: 100%;
+    text-align: center;
+  }
+}
