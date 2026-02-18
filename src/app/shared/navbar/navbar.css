@@ -1,12 +1,17 @@
-:host{ display:block; position:sticky; top:0; z-index:50; }
-
-.topbar{
-  position: relative;
+:host{
+  display:block;
+  position: sticky;
   top: 0;
   z-index: 50;
+}
+
+/* ===== TOPBAR ===== */
+.topbar{
+  position: relative;
+  z-index: 50;
   background: linear-gradient(135deg, #070e1a, #0b1628);
-  border-top: 2px solid #caa24d;      /* línea dorada superior */
-  border-bottom: 2px solid #caa24d;   /* línea dorada inferior */
+  border-top: 2px solid #caa24d;
+  border-bottom: 2px solid #caa24d;
   box-shadow: 0 15px 35px rgba(0,0,0,.45);
 }
 
@@ -20,43 +25,160 @@
   background: linear-gradient(90deg, transparent, #caa24d, transparent);
 }
 
-.container{ width:min(1120px, calc(100% - 48px)); margin:0 auto; }
-
-.topbar-inner{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:10px 0; gap:14px;
+/* Container SOLO del navbar (evita chocar con otros .container) */
+.topbar .container,
+.navwrap .container{
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
 }
-.mini-info{ display:flex; gap:10px; flex-wrap:wrap; font-size:13px; color:#b8c3df; }
-.badge{ padding:6px 10px; border:1px solid rgba(255,255,255,.08); border-radius:999px; background:rgba(255,255,255,.03); }
 
+/* Layout superior */
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: clamp(8px, 1.2vw, 12px) 0;
+  gap: 14px;
+}
+
+.mini-info{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: clamp(12px, 1.2vw, 13px);
+  color: #b8c3df;
+}
+
+.badge{
+  padding: 6px 10px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 999px;
+  background: rgba(255,255,255,.03);
+  white-space: nowrap;
+}
+
+/* CTA */
 .cta-whatsapp{
-  padding:10px 14px; border-radius:12px; font-weight:700; text-decoration:none;
-  border:1px solid rgba(202,162,77,.35);
-  background:linear-gradient(180deg, rgba(202,162,77,.25), rgba(202,162,77,.12));
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: clamp(12px, 1.3vw, 13px);
+  text-decoration:none;
+  border: 1px solid rgba(202,162,77,.35);
+  background: linear-gradient(180deg, rgba(202,162,77,.25), rgba(202,162,77,.12));
   color:#fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  transition: .2s ease;
 }
 
 .cta-whatsapp:hover{
-  background:linear-gradient(180deg, rgba(155, 245, 116, 0.25), rgba(39, 98, 2, 0.12));
+  background: linear-gradient(180deg, rgba(155, 245, 116, 0.25), rgba(39, 98, 2, 0.12));
 }
 
-.navwrap{ border-top:1px solid rgba(255,255,255,.08); }
-.nav-inner{ display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:18px; }
+/* ===== NAV ===== */
+.navwrap{
+  border-top: 1px solid rgba(255,255,255,.08);
+}
 
-.brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:#e9eefc; }
-.brand-logo{ width:44px; height:44px; border-radius:12px; display:grid; place-items:center; background:rgba(202,162,77,.14); border:1px solid rgba(202,162,77,.25); }
-.brand-text{ display:flex; flex-direction:column; line-height:1.1; }
-.brand-name{ font-weight:800; letter-spacing:.6px; }
-.brand-sub{ font-size:12px; color:#b8c3df; margin-top:4px; }
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: clamp(10px, 1.5vw, 14px) 0;
+  gap: 18px;
+}
 
-.nav{ display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end; }
+.brand{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  text-decoration:none;
+  color:#e9eefc;
+  min-width: 220px;
+}
+
+.brand-logo{
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display:grid;
+  place-items:center;
+  background: rgba(202,162,77,.14);
+  border: 1px solid rgba(202,162,77,.25);
+  flex: 0 0 auto;
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+
+.brand-name{
+  font-weight: 900;
+  letter-spacing: .6px;
+  font-size: clamp(13px, 1.4vw, 14px);
+}
+
+.brand-sub{
+  font-size: 12px;
+  color: #b8c3df;
+  margin-top: 4px;
+}
+
+/* Links */
+.nav{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 .nav a{
-  color:#b8c3df; text-decoration:none; font-weight:700; font-size:13px;
-  padding:10px 10px; border-radius:12px;
+  color:#b8c3df;
+  text-decoration:none;
+  font-weight: 800;
+  font-size: clamp(12px, 1.2vw, 13px);
+  padding: 10px 12px;
+  border-radius: 12px;
+  transition: .2s ease;
+  white-space: nowrap;
 }
-.nav a:hover{ background:rgba(255,255,255,.04); color:#e9eefc; }
-.nav a.is-active{ background:rgba(202,162,77,.12); border:1px solid rgba(202,162,77,.18); color:#e9eefc; }
 
+.nav a:hover{
+  background: rgba(255,255,255,.04);
+  color: #e9eefc;
+}
+
+.nav a.is-active{
+  background: rgba(202,162,77,.12);
+  border: 1px solid rgba(202,162,77,.18);
+  color: #e9eefc;
+}
+
+/* ===== BREAKPOINTS ===== */
+
+/* Tablet grande: acomoda sin romper */
+@media (max-width: 1024px){
+  .topbar .container,
+  .navwrap .container{
+    width: min(1120px, calc(100% - 36px));
+  }
+
+  .brand{
+    min-width: 0;
+  }
+
+  .nav{
+    gap: 8px;
+  }
+}
+
+/* Tablet / mobile: pasa a columnas */
 @media (max-width: 900px){
   .topbar-inner{
     flex-direction: column;
@@ -85,15 +207,21 @@
   }
 }
 
+/* Celular: todo a ancho completo y centrado */
 @media (max-width: 520px){
-  .container{
+  .topbar .container,
+  .navwrap .container{
     width: calc(100% - 26px);
+  }
+
+  .mini-info{
+    width: 100%;
   }
 
   .mini-info .badge{
     width: 100%;
-    justify-content: center;
     text-align: center;
+    justify-content: center;
   }
 
   .brand{
@@ -103,5 +231,26 @@
   .cta-whatsapp{
     width: 100%;
     text-align: center;
+  }
+
+  /* Links estilo "chips" que llenan el ancho */
+  .nav{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 por fila */
+    gap: 8px;
+  }
+
+  .nav a{
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* Teléfonos pequeños: 1 por fila si no cabe */
+@media (max-width: 360px){
+  .nav{
+    grid-template-columns: 1fr;
   }
 }

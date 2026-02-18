@@ -4,39 +4,73 @@
   color: #f8fafc;
 }
 
-.container{ width: 1200px; max-width: 92%; margin: 0 auto; }
+/* Container fluido y seguro en cualquier pantalla */
+.container{
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
 
-.head{ text-align:center; margin-bottom: 34px; }
-.head h1{ font-size: 42px; margin: 0 0 12px; }
-.head p{ max-width: 760px; margin: 0 auto; color:#cbd5e1; line-height: 1.7; }
+/* Header */
+.head{
+  text-align: center;
+  margin-bottom: 34px;
+}
+.head h1{
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 0 0 12px;
+  line-height: 1.15;
+}
+.head p{
+  max-width: 760px;
+  margin: 0 auto;
+  color: #cbd5e1;
+  line-height: 1.7;
+  font-size: clamp(14px, 1.6vw, 16px);
+}
 
+/* Grid responsive (se ajusta solo) */
 .grid{
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 22px;
 }
 
+/* Cards */
 .card{
   background: rgba(255,255,255,.03);
   border: 1px solid rgba(255,255,255,.08);
   border-radius: 16px;
-  padding: 20px 18px;
+  padding: 5px 18px;
+  height: 100%;
+}
+.card h3{
+  margin: 0 0 10px;
+  font-size: clamp(16px, 2vw, 18px);
+}
+.card p{
+  margin: 0;
+  color: #cbd5e1;
+  line-height: 1.65;
+  font-size: clamp(13px, 1.7vw, 14px);
+}
+.card ul{
+  margin: 0;
+  padding-left: 18px;
+  color: #cbd5e1;
+  line-height: 1.8;
+  font-size: clamp(13px, 1.7vw, 14px);
 }
 
-.card h3{ margin: 0 0 10px; }
-.card p{ margin: 0; color:#cbd5e1; line-height: 1.65; font-size: 14px; }
-
-.card ul{ margin: 0; padding-left: 18px; color:#cbd5e1; line-height: 1.8; font-size: 14px; }
-
+/* Botones */
 .actions{
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
   gap: 12px;
   margin-top: 26px;
   flex-wrap: wrap;
   position: relative;
-  z-index: 5;
+  z-index: 10;
 }
 
 .btn-gold{
@@ -46,6 +80,10 @@
   color: #111;
   font-weight: 800;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .btn-outline{
@@ -55,13 +93,64 @@
   border: 1px solid rgba(255,255,255,.12);
   text-decoration: none;
   background: rgba(255,255,255,.03);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
-@media (max-width: 1100px){
-  .grid{ grid-template-columns: 1fr; }
+/* ===== BREAKPOINTS (sin cambiar el look) ===== */
+
+/* Tablets / pantallas medianas: 2 columnas */
+@media (max-width: 1024px){
+  .about{
+    padding: 60px 0 80px;
+  }
+
+  .grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
 }
 
-.actions {
-  position: relative;
-  z-index: 10;
+/* Celulares: 1 columna + botones full width */
+@media (max-width: 640px){
+  .about{
+    padding: 48px 0 64px;
+  }
+
+  .head{
+    margin-bottom: 24px;
+  }
+
+  .grid{
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card{
+    padding: 18px 16px;
+  }
+
+  .actions{
+    gap: 10px;
+  }
+
+  .btn-gold,
+  .btn-outline{
+    width: 100%;
+    max-width: 520px;
+  }
+}
+
+/* Extra small (teléfonos pequeños) */
+@media (max-width: 380px){
+  .btn-gold,
+  .btn-outline{
+    padding: 12px 16px;
+  }
+
+  .card ul{
+    padding-left: 16px;
+  }
 }
